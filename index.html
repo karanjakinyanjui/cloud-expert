@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AWS & Kubernetes Consulting | Cloud Infrastructure Expert</title>
+    <meta
+      name="description"
+      content="Expert AWS & Kubernetes consulting to reduce cloud costs, secure infrastructure, and accelerate deployment without full-time hires."
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #ff9900;
+        --primary-dark: #e88b00;
+        --secondary: #146eb4;
+        --dark: #0f1419;
+        --gray: #232f3e;
+        --light-gray: #f3f4f6;
+        --text: #1f2937;
+        --text-light: #6b7280;
+        --success: #10b981;
+        --gradient: linear-gradient(135deg, #ff9900 0%, #e88b00 100%);
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background: #fff;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid #e5e7eb;
+        transition: all 0.3s ease;
+      }
+
+      nav.scrolled {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .logo span {
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .cta-btn {
+        background: var(--gradient);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(255, 153, 0, 0.3);
+      }
+
+      /* Hero Section */
+      .hero {
+        margin-top: 80px;
+        padding: 6rem 2rem;
+        background: linear-gradient(135deg, #0f1419 0%, #232f3e 100%);
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 153, 0, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(20, 110, 180, 0.1) 0%,
+            transparent 50%
+          );
+      }
+
+      .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        animation: fadeInUp 0.8s ease;
+      }
+
+      .hero .highlight {
+        color: var(--primary);
+      }
+
+      .hero .subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: #d1d5db;
+        animation: fadeInUp 0.8s ease 0.2s both;
+      }
+
+      .hero .description {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        color: #9ca3af;
+        animation: fadeInUp 0.8s ease 0.4s both;
+      }
+
+      .hero-ctas {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInUp 0.8s ease 0.6s both;
+      }
+
+      .btn-primary {
+        background: var(--gradient);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(255, 153, 0, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border: 2px solid white;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .btn-secondary:hover {
+        background: white;
+        color: var(--dark);
+      }
+
+      /* Sections */
+      section {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--dark);
+      }
+
+      /* Who This Is For */
+      .audience {
+        background: var(--light-gray);
+      }
+
+      .audience-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .audience-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .audience-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .audience-card.ideal {
+        border-top: 4px solid var(--success);
+      }
+
+      .audience-card.not-ideal {
+        border-top: 4px solid #ef4444;
+      }
+
+      .audience-card .icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .audience-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      .audience-card p {
+        color: var(--text-light);
+      }
+
+      /* Services */
+      .services-grid {
+        display: grid;
+        gap: 3rem;
+      }
+
+      .service-card {
+        background: white;
+        border-radius: 16px;
+        padding: 3rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        border-color: var(--primary);
+      }
+
+      .service-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+      }
+
+      .service-card h3 {
+        font-size: 1.8rem;
+        color: var(--dark);
+        margin: 0;
+      }
+
+      .service-card .tagline {
+        color: var(--text-light);
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+
+      .service-details {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .service-details h4 {
+        color: var(--dark);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .service-details ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .service-details li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--text);
+      }
+
+      .service-details li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success);
+        font-weight: bold;
+      }
+
+      .service-meta {
+        background: var(--light-gray);
+        padding: 1.5rem;
+        border-radius: 8px;
+      }
+
+      .service-meta p {
+        margin-bottom: 0.5rem;
+        color: var(--text);
+      }
+
+      .service-meta strong {
+        color: var(--dark);
+      }
+
+      .outcome {
+        background: #fef3c7;
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+
+      .outcome strong {
+        color: var(--dark);
+      }
+
+      .ideal-for {
+        background: #dbeafe;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--secondary);
+      }
+
+      .ideal-for h4 {
+        margin-top: 0;
+      }
+
+      .ideal-for ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .ideal-for li {
+        padding: 0.3rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .ideal-for li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--secondary);
+      }
+
+      /* Why Section */
+      .why-me {
+        background: var(--light-gray);
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .benefit {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .benefit:hover {
+        transform: translateY(-5px);
+      }
+
+      .benefit .icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .benefit h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      .benefit p {
+        color: var(--text-light);
+      }
+
+      /* Process */
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .step {
+        text-align: center;
+        position: relative;
+      }
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 auto 1rem;
+      }
+
+      .step h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      .step p {
+        color: var(--text-light);
+      }
+
+      /* CTA Section */
+      .final-cta {
+        background: linear-gradient(135deg, #0f1419 0%, #232f3e 100%);
+        color: white;
+        text-align: center;
+        padding: 5rem 2rem;
+        border-radius: 16px;
+        margin: 3rem 2rem;
+      }
+
+      .final-cta h2 {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .final-cta p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #d1d5db;
+      }
+
+      .final-cta .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--gray);
+        color: #9ca3af;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      footer p {
+        margin-bottom: 1rem;
+      }
+
+      footer a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero .subtitle {
+          font-size: 1.2rem;
+        }
+
+        .hero-ctas {
+          flex-direction: column;
+        }
+
+        .service-details {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        section {
+          padding: 3rem 1rem;
+        }
+      }
+
+      /* Mobile menu toggle */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--dark);
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: white;
+          flex-direction: column;
+          padding: 2rem;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+      }
+
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <div class="logo">Cloud<span>Expert</span></div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Work With Me</a></li>
+          <li><a href="#process">Process</a></li>
+        </ul>
+        <a href="#contact" class="cta-btn">Get Started</a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>AWS & Kubernetes Consulting</h1>
+        <p class="subtitle">
+          Reduce Cloud Costs. Secure Your Infrastructure.
+          <span class="highlight">Ship Faster</span> — Without Hiring Full-Time.
+        </p>
+        <p class="description">
+          I help growing teams design, fix, and operate AWS and Kubernetes
+          platforms that are cost-efficient, secure, and production-ready.
+        </p>
+        <p class="description">
+          If your AWS bill keeps growing, your EKS cluster feels fragile, or
+          your team is slowed down by infrastructure decisions — I can help.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Book Discovery Call</a>
+          <a href="#services" class="btn-secondary">View Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="audience">
+      <h2>Who This Is For</h2>
+      <div class="audience-grid">
+        <div class="audience-card ideal">
+          <div class="icon">✓</div>
+          <h3>Startups on AWS</h3>
+          <p>
+            Already using AWS and need to optimize, secure, or scale your
+            infrastructure
+          </p>
+        </div>
+        <div class="audience-card ideal">
+          <div class="icon">✓</div>
+          <h3>Teams Running Kubernetes</h3>
+          <p>Operating or planning EKS deployments that need expert guidance</p>
+        </div>
+        <div class="audience-card ideal">
+          <div class="icon">✓</div>
+          <h3>CTOs & Founders</h3>
+          <p>
+            Leaders who want fewer infrastructure fires and more reliable
+            systems
+          </p>
+        </div>
+        <div class="audience-card ideal">
+          <div class="icon">✓</div>
+          <h3>Growing Teams</h3>
+          <p>Companies not ready to hire a full-time DevOps engineer yet</p>
+        </div>
+      </div>
+      <div
+        class="audience-card not-ideal"
+        style="max-width: 600px; margin: 0 auto"
+      >
+        <div class="icon">✗</div>
+        <h3>Not Ideal For</h3>
+        <p>
+          Very early-stage startups or hobby projects that aren't ready for
+          professional infrastructure investment
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <h2>How I Help</h2>
+      <p
+        style="
+          text-align: center;
+          color: var(--text-light);
+          margin-bottom: 3rem;
+          font-size: 1.1rem;
+        "
+      >
+        Focused, outcome-driven engagements — no vague "consulting", no endless
+        retainers unless you want one.
+      </p>
+
+      <div class="services-grid">
+        <!-- Service 1: Cloud FinOps -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">💰</div>
+            <h3>Cloud FinOps Sprint</h3>
+          </div>
+          <p class="tagline">
+            Cut AWS costs fast (without breaking production)
+          </p>
+
+          <div class="service-details">
+            <div>
+              <h4>What You Get</h4>
+              <ul>
+                <li>Full AWS cost and usage analysis</li>
+                <li>EKS rightsizing (nodes, workloads, autoscaling)</li>
+                <li>Spot & Karpenter optimization strategy</li>
+                <li>Automated cleanup for unused resources</li>
+                <li>Clear cost-saving action plan</li>
+              </ul>
+            </div>
+            <div class="service-meta">
+              <p><strong>Timeline:</strong> 3–5 days</p>
+              <p><strong>Investment:</strong> $3,500</p>
+            </div>
+          </div>
+
+          <div class="outcome">
+            <strong>Typical Outcome:</strong> 15–40% AWS cost reduction within
+            30 days
+          </div>
+        </div>
+
+        <!-- Service 2: Security Hardening -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">🔒</div>
+            <h3>Security Hardening Sprint</h3>
+          </div>
+          <p class="tagline">Lock down AWS access without slowing engineers</p>
+
+          <div class="service-details">
+            <div>
+              <h4>What You Get</h4>
+              <ul>
+                <li>IAM least-privilege overhaul</li>
+                <li>Zero-SSH setup using AWS SSM</li>
+                <li>Private subnet & network hardening</li>
+                <li>Practical security fixes (not just a report)</li>
+              </ul>
+            </div>
+            <div class="service-meta">
+              <p><strong>Timeline:</strong> 1 week</p>
+              <p><strong>Investment:</strong> $4,500</p>
+            </div>
+          </div>
+
+          <div class="ideal-for">
+            <h4>Ideal If</h4>
+            <ul>
+              <li>You're preparing for audits (SOC2 / ISO-lite)</li>
+              <li>You want fewer security risks without bureaucracy</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 3: EKS Golden Path -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">⚙️</div>
+            <h3>EKS "Golden Path" Setup</h3>
+          </div>
+          <p class="tagline">
+            A production-ready Kubernetes platform your team can actually use
+          </p>
+
+          <div class="service-details">
+            <div>
+              <h4>What You Get</h4>
+              <ul>
+                <li>Terraform-based EKS infrastructure</li>
+                <li>Secure cluster design (RBAC, IAM, networking)</li>
+                <li>GitOps CI/CD with ArgoCD</li>
+                <li>Clear platform conventions for future engineers</li>
+              </ul>
+            </div>
+            <div class="service-meta">
+              <p><strong>Timeline:</strong> ~2 weeks</p>
+              <p><strong>Investment:</strong> Starting at $8,000</p>
+            </div>
+          </div>
+
+          <div class="ideal-for">
+            <h4>Ideal If</h4>
+            <ul>
+              <li>Your current cluster is fragile or DIY</li>
+              <li>
+                You want a scalable foundation before hiring more engineers
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 4: Observability -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">📊</div>
+            <h3>Observability Foundation</h3>
+          </div>
+          <p class="tagline">See what's breaking — before users do</p>
+
+          <div class="service-details">
+            <div>
+              <h4>What You Get</h4>
+              <ul>
+                <li>Prometheus & Grafana setup</li>
+                <li>OpenTelemetry instrumentation</li>
+                <li>Core dashboards & alerts</li>
+                <li>Baseline SLO / performance visibility</li>
+              </ul>
+            </div>
+            <div class="service-meta">
+              <p><strong>Timeline:</strong> 3 days</p>
+              <p><strong>Investment:</strong> $3,000</p>
+            </div>
+          </div>
+
+          <div class="ideal-for">
+            <h4>Ideal If</h4>
+            <ul>
+              <li>You're flying blind in production</li>
+              <li>Debugging takes too long</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 5: Fractional DevOps -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">🤝</div>
+            <h3>Fractional DevOps (Retainer)</h3>
+          </div>
+          <p class="tagline">Senior DevOps help — without a full-time hire</p>
+
+          <div class="service-details">
+            <div>
+              <h4>What You Get</h4>
+              <ul>
+                <li>Ongoing architecture reviews</li>
+                <li>CI/CD & infra maintenance</li>
+                <li>Cost & reliability improvements</li>
+                <li>On-call infrastructure support (defined scope)</li>
+              </ul>
+            </div>
+            <div class="service-meta">
+              <p><strong>Engagement:</strong> Monthly</p>
+              <p><strong>Investment:</strong> $2,500/month</p>
+              <p style="font-size: 0.9rem; color: var(--text-light)">
+                (~20 hrs/month, SLA-lite)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Work With Me -->
+    <section id="why" class="why-me">
+      <h2>Why Work With Me</h2>
+      <div class="benefits-grid">
+        <div class="benefit">
+          <div class="icon">🎯</div>
+          <h3>Outcomes, Not Buzzwords</h3>
+          <p>Focus on measurable results that impact your business</p>
+        </div>
+        <div class="benefit">
+          <div class="icon">🚀</div>
+          <h3>Deep AWS & K8s Experience</h3>
+          <p>Battle-tested expertise in production environments</p>
+        </div>
+        <div class="benefit">
+          <div class="icon">💡</div>
+          <h3>Founder-Friendly</h3>
+          <p>Pragmatic approach that respects your constraints and goals</p>
+        </div>
+        <div class="benefit">
+          <div class="icon">🔓</div>
+          <h3>You Own Everything</h3>
+          <p>No vendor lock-in. All code and infrastructure is yours</p>
+        </div>
+      </div>
+      <div
+        style="
+          text-align: center;
+          margin-top: 3rem;
+          font-size: 1.1rem;
+          color: var(--text);
+        "
+      >
+        <p>
+          <strong
+            >No long contracts. No vendor lock-in. No unnecessary
+            tooling.</strong
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process">
+      <h2>What Working Together Looks Like</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Discovery Call</h3>
+          <p>Quick 30-min conversation to understand your challenges</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Fixed-Scope Proposal</h3>
+          <p>Clear deliverables, timeline, and investment</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Fast Execution</h3>
+          <p>Focused work with regular updates</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Handover & Docs</h3>
+          <p>Complete documentation and knowledge transfer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+      <h2>Ready to Improve Your AWS Setup?</h2>
+      <p>
+        If your infrastructure feels expensive, fragile, or over-engineered —
+        let's fix it.
+      </p>
+      <div class="cta-buttons">
+        <a
+          href="mailto:your-email@example.com?subject=Discovery Call Request"
+          class="btn-primary"
+          >Book a Discovery Call</a
+        >
+        <a
+          href="mailto:your-email@example.com?subject=AWS Challenge"
+          class="btn-secondary"
+          >Message Me Your Challenge</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 AWS & Kubernetes Consulting. All rights reserved.</p>
+      <p>Helping teams build better cloud infrastructure.</p>
+      <p><a href="mailto:your-email@example.com">your-email@example.com</a></p>
+    </footer>
+
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile menu toggle
+      function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+            // Close mobile menu if open
+            document.getElementById("navLinks").classList.remove("active");
+          }
+        });
+      });
+
+      // Add animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animation = "fadeInUp 0.8s ease forwards";
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".service-card, .benefit, .step, .audience-card")
+        .forEach((el) => {
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>
