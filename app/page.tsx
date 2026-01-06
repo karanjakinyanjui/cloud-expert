@@ -6,6 +6,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
+// Feature Flags
+const FEATURES = {
+  SHOW_TESTIMONIALS: false,
+  SHOW_COMPANY_LOGOS: false,
+  SHOW_CASE_STUDIES: true,
+};
+
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -620,7 +627,180 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Tech Stack */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl font-bold mb-2">Technologies & Tools</h3>
+            <p className="text-muted-foreground">Expertise in industry-leading cloud native technologies</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+            {/* AWS */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">☁️</div>
+                  <p className="text-xs font-bold text-primary">AWS</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Kubernetes */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">⎈</div>
+                  <p className="text-xs font-bold text-secondary">K8s</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Terraform */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">🏗️</div>
+                  <p className="text-xs font-bold">Terraform</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Helm */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">⎆</div>
+                  <p className="text-xs font-bold">Helm</p>
+                </div>
+              </div>
+            </div>
+
+            {/* ArgoCD */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">🔄</div>
+                  <p className="text-xs font-bold">ArgoCD</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Prometheus */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">📊</div>
+                  <p className="text-xs font-bold">Prometheus</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Grafana */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">📈</div>
+                  <p className="text-xs font-bold">Grafana</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Docker */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">🐳</div>
+                  <p className="text-xs font-bold">Docker</p>
+                </div>
+              </div>
+            </div>
+
+            {/* GitHub Actions */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">⚙️</div>
+                  <p className="text-xs font-bold">GitHub</p>
+                </div>
+              </div>
+            </div>
+
+            {/* EKS */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">🎯</div>
+                  <p className="text-xs font-bold text-primary">EKS</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Karpenter */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">🔧</div>
+                  <p className="text-xs font-bold">Karpenter</p>
+                </div>
+              </div>
+            </div>
+
+            {/* OpenTelemetry */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">🔭</div>
+                  <p className="text-xs font-bold">OpenTel</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Istio */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">🕸️</div>
+                  <p className="text-xs font-bold">Istio</p>
+                </div>
+              </div>
+            </div>
+
+            {/* PostgreSQL */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">🐘</div>
+                  <p className="text-xs font-bold">PostgreSQL</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Redis */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">⚡</div>
+                  <p className="text-xs font-bold">Redis</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Nginx */}
+            <div className="flex flex-col items-center justify-center group">
+              <div className="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mb-3 group-hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="text-3xl mb-1">🌐</div>
+                  <p className="text-xs font-bold">Nginx</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
+      {FEATURES.SHOW_TESTIMONIALS && (
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -723,6 +903,7 @@ export default function Home() {
             </Card>
           </div>
 
+          {FEATURES.SHOW_COMPANY_LOGOS && (
           <div className="text-center mt-12">
             <p className="text-muted-foreground mb-4">Join 40+ companies that have improved their infrastructure</p>
             <div className="flex flex-wrap justify-center gap-8 items-center opacity-60">
@@ -732,8 +913,195 @@ export default function Home() {
               <div className="text-2xl font-bold text-muted-foreground">Company Logo</div>
             </div>
           </div>
+          )}
         </div>
       </section>
+      )}
+
+      {/* Case Studies */}
+      {FEATURES.SHOW_CASE_STUDIES && (
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">Case Studies</h2>
+            <p className="text-xl text-muted-foreground">Real projects, real results, real impact</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Case Study 1: Cloud FinOps */}
+            <Card className="hover:shadow-xl transition-all hover:-translate-y-1">
+              <CardHeader>
+                <Badge className="w-fit mb-3">Cloud FinOps Sprint</Badge>
+                <CardTitle className="text-2xl mb-2">49% AWS Cost Reduction for Series B SaaS</CardTitle>
+                <CardDescription>
+                  How a B2B SaaS company reduced their AWS bill from $18K to $9.2K/month
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold mb-2">The Challenge</h4>
+                    <p className="text-sm text-muted-foreground">
+                      AWS spending reached $18,000/month with no visibility. EKS cluster severely over-provisioned
+                      with 8 t3.xlarge nodes at 15% utilization. Founders worried about runway burn rate.
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-green-50 p-3 rounded-lg">
+                      <p className="text-xs text-muted-foreground mb-1">Cost Reduction</p>
+                      <p className="text-2xl font-bold text-green-700">49%</p>
+                    </div>
+                    <div className="bg-blue-50 p-3 rounded-lg">
+                      <p className="text-xs text-muted-foreground mb-1">Annual Savings</p>
+                      <p className="text-2xl font-bold text-blue-700">$105K</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Key Results</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• Rightsized EKS nodes: 8x t3.xlarge → 4x t3.large</li>
+                      <li>• Implemented Karpenter autoscaling</li>
+                      <li>• Timeline: 4 days</li>
+                      <li>• ROI: 30x in first year</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Case Study 2: Security Hardening */}
+            <Card className="hover:shadow-xl transition-all hover:-translate-y-1">
+              <CardHeader>
+                <Badge className="w-fit mb-3">Security Hardening</Badge>
+                <CardTitle className="text-2xl mb-2">$180K Deal Saved: Emergency Security Fix</CardTitle>
+                <CardDescription>
+                  Healthcare startup passed SOC2 audit and saved enterprise contract
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold mb-2">The Challenge</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Failed pre-audit with 23 critical findings. Production databases exposed. Enterprise customer
+                      requiring SOC2. 6-week deadline to remediate or lose $180K contract.
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-red-50 p-3 rounded-lg">
+                      <p className="text-xs text-muted-foreground mb-1">Critical Findings</p>
+                      <p className="text-2xl font-bold text-red-700">23 → 0</p>
+                    </div>
+                    <div className="bg-green-50 p-3 rounded-lg">
+                      <p className="text-xs text-muted-foreground mb-1">Deal Saved</p>
+                      <p className="text-2xl font-bold text-green-700">$180K</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Key Results</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• All critical findings remediated</li>
+                      <li>• SOC2 Type I completed 2 months early</li>
+                      <li>• Zero workflow disruption</li>
+                      <li>• Timeline: 1 week</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Case Study 3: EKS Golden Path */}
+            <Card className="hover:shadow-xl transition-all hover:-translate-y-1">
+              <CardHeader>
+                <Badge className="w-fit mb-3">EKS Golden Path</Badge>
+                <CardTitle className="text-2xl mb-2">90% Incident Reduction: Platform Rebuild</CardTitle>
+                <CardDescription>
+                  E-commerce company transformed fragile cluster into rock-solid platform
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold mb-2">The Challenge</h4>
+                    <p className="text-sm text-muted-foreground">
+                      DIY Kubernetes setup with weekly production incidents. Manual kubectl deployments. 4-hour
+                      average recovery time. Engineers afraid to make changes.
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-green-50 p-3 rounded-lg">
+                      <p className="text-xs text-muted-foreground mb-1">Incidents</p>
+                      <p className="text-2xl font-bold text-green-700">-90%</p>
+                    </div>
+                    <div className="bg-blue-50 p-3 rounded-lg">
+                      <p className="text-xs text-muted-foreground mb-1">MTTR</p>
+                      <p className="text-2xl font-bold text-blue-700">12x faster</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Key Results</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• Terraform-based infrastructure</li>
+                      <li>• GitOps with ArgoCD</li>
+                      <li>• Deployments: 3/week → 20/day</li>
+                      <li>• Timeline: 2.5 weeks</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Case Study 4: Observability */}
+            <Card className="hover:shadow-xl transition-all hover:-translate-y-1">
+              <CardHeader>
+                <Badge className="w-fit mb-3">Observability</Badge>
+                <CardTitle className="text-2xl mb-2">77% Latency Improvement: Visibility Unlocked</CardTitle>
+                <CardDescription>
+                  FinTech API provider found and fixed performance issues they didn't know existed
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold mb-2">The Challenge</h4>
+                    <p className="text-sm text-muted-foreground">
+                      No metrics beyond basic CloudWatch. Customer complaints about slow APIs. Engineers spending
+                      8-10 hrs/week firefighting. Unable to meet SLA commitments.
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-green-50 p-3 rounded-lg">
+                      <p className="text-xs text-muted-foreground mb-1">P95 Latency</p>
+                      <p className="text-2xl font-bold text-green-700">-77%</p>
+                    </div>
+                    <div className="bg-blue-50 p-3 rounded-lg">
+                      <p className="text-xs text-muted-foreground mb-1">Cost Avoided</p>
+                      <p className="text-2xl font-bold text-blue-700">$60K/yr</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Key Results</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• 800ms → 180ms P95 latency</li>
+                      <li>• Found 3 critical bottlenecks in week 1</li>
+                      <li>• 8 hrs/week team time saved</li>
+                      <li>• Timeline: 3 days</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-muted-foreground mb-4">Want similar results for your infrastructure?</p>
+            <Button size="lg" asChild>
+              <a href="#contact">Discuss Your Project</a>
+            </Button>
+          </div>
+        </div>
+      </section>
+      )}
 
       {/* Process */}
       <section id="process" className="py-20 px-4 sm:px-6 lg:px-8">
