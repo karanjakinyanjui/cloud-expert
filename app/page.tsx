@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -269,6 +270,11 @@ export default function Home() {
                   <p className="text-sm mb-2">Client with $15,000/month AWS bill → 25% reduction = $3,750/month savings</p>
                   <p className="text-sm"><span className="font-semibold">Break-even: &lt; 1 month</span> • First year savings: <span className="font-semibold text-green-700">$45,000</span> • ROI: <span className="font-semibold text-green-700">13x</span></p>
                 </div>
+                <div className="mt-4">
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/services/cloud-finops">Learn More →</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 
@@ -329,6 +335,11 @@ export default function Home() {
                 <div className="bg-slate-50 border-l-4 border-slate-600 p-4 rounded">
                   <h4 className="font-semibold mb-2 text-sm">Value vs. Alternatives</h4>
                   <p className="text-sm">vs. Failed audit + customer churn: Priceless • vs. Big consulting firm: $25,000-$50,000</p>
+                </div>
+                <div className="mt-4">
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/services/security-hardening">Learn More →</Link>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -392,6 +403,11 @@ export default function Home() {
                   <h4 className="font-semibold mb-2 text-sm">Value vs. Alternatives</h4>
                   <p className="text-sm">vs. Bad hire: $150,000 + 6 months • vs. Big consulting firm: $50,000-$100,000 • vs. Weekly production incidents: Priceless</p>
                 </div>
+                <div className="mt-4">
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/services/eks-golden-path">Learn More →</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 
@@ -453,6 +469,11 @@ export default function Home() {
                   <h4 className="font-semibold mb-2 text-sm">Value vs. Alternatives</h4>
                   <p className="text-sm">vs. Commercial APM tools: $5,000-$10,000/month • vs. Hours of debugging: Countless engineering time saved</p>
                 </div>
+                <div className="mt-4">
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/services/observability-foundation">Learn More →</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 
@@ -497,6 +518,11 @@ export default function Home() {
                     <p className="mb-2"><span className="font-semibold">Investment:</span> $2,500/month</p>
                     <p className="text-sm text-muted-foreground">(~20 hrs/month, SLA-lite)</p>
                   </div>
+                </div>
+                <div className="mt-4">
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/services/fractional-devops">Learn More →</Link>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
